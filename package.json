@@ -4,12 +4,14 @@
   "description": "pandadb is a local document-oriented JSON database, ready to be implemented in an application in a simple way",
   "main": "index.js",
   "scripts": {
-    "lint": "standard"
+    "lint": "standard",
+    "test": "ava"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "ava": "6.0.1",
     "standard": "17.1.0"
   }
 }
