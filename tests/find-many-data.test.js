@@ -19,7 +19,7 @@ test.after(_t => {
   deleteFileSync(db.path)
 })
 
-test('find many data', async t => {
+test('findMany, will find and return all the elements that match the query made', async t => {
   const result = await players.findMany({ team: 'Leakers' })
   const expected = [
     { name: 'Kobe Bryant', team: 'Leakers', shirtNumber: 24 },
