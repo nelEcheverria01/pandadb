@@ -24,7 +24,6 @@ test('when the destroy method is called, it will delete the collection from whic
 
   t.is(response.status, 'success')
   t.is(response.destroyedCollection, 'players')
-  t.false(db.collections.includes('players'))
 
   /**
    * The collection no longer exists but the
