@@ -40,3 +40,10 @@ test('findMany, will find and return all the elements that match the query made'
   t.is(result[1].team, expected[1].team)
   t.is(result[1].shirtNumber, expected[1].shirtNumber)
 })
+
+test('findMany will return an error if the query is not of type object', async t => {
+  await t.throwsAsync(async () => await players.findMany(4785))
+  await t.throwsAsync(async () => await players.findMany(true))
+  await t.throwsAsync(async () => await players.findMany('jj'))
+  await t.throwsAsync(async () => await players.findMany([1, 2, 3]))
+})
