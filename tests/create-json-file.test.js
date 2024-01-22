@@ -21,3 +21,7 @@ test('by passing a custom filename to the constructor, PandaDB will create it sy
   const db = new PandaDB(customFile)
   t.true(fileExistsSync(db.path))
 })
+
+test('when the parameter provided to the constructor is not of type string it should throw an error', t => {
+  t.throws(() => new PandaDB(500))
+})
