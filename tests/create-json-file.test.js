@@ -24,4 +24,7 @@ test('by passing a custom filename to the constructor, PandaDB will create it sy
 
 test('when the parameter provided to the constructor is not of type string it should throw an error', t => {
   t.throws(() => new PandaDB(500))
+  t.throws(() => new PandaDB({}))
+  t.throws(() => new PandaDB(true))
+  t.throws(() => new PandaDB([]))
 })
