@@ -16,3 +16,10 @@ test('collection(), will insert the collection into the database (JSON file) and
 })
 
 test.todo('the returned object will contain methods to manipulate the collection data')
+
+test('when the collection name is not of type string, collection() should return an error', t => {
+  t.throws(() => db.collection(7897))
+  t.throws(() => db.collection({}))
+  t.throws(() => db.collection(false))
+  t.throws(() => db.collection([]))
+})
