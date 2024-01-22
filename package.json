@@ -5,16 +5,20 @@
   "main": "index.js",
   "scripts": {
     "lint": "standard",
-    "test": "ava --concurrency=1"
+    "test": "ava --concurrency=1",
+    "coverage": "nyc npm run test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "ava": "6.0.1",
+    "nyc": "15.1.0",
     "standard": "17.1.0"
   },
   "ava": {
-    "files": ["!tests/utils/*"]
+    "files": [
+      "!tests/utils/*"
+    ]
   }
 }
