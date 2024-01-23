@@ -2,14 +2,32 @@
   "name": "pandadb",
   "version": "1.0.0",
   "description": "pandadb is a local document-oriented JSON database, ready to be implemented in an application in a simple way",
-  "main": "index.js",
+  "main": "lib/pandadb.js",
   "scripts": {
     "lint": "standard",
     "test": "ava --concurrency=1",
     "coverage": "nyc npm run test"
   },
-  "keywords": [],
-  "author": "",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nelEcheverria01/pandadb.git"
+  },
+  "keywords": [
+    "JSON",
+    "db",
+    "database",
+    "JSON database",
+    "lowdb",
+    "local db",
+    "local",
+    "mql",
+    "MQL",
+    "local database"
+  ],
+  "author": "Nelson Echeverria <nelsonecheverria100@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "ava": "6.0.1",
