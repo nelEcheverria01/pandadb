@@ -30,3 +30,13 @@ test('when edit() tries to edit an element that does not exist, it should return
   t.is(err.message, 'no element found in collection players that matches the query')
   t.assert(err instanceof Error)
 })
+
+test('edit, should return an error, when the update is not an object', async t => {
+  const query = { name: 'Kobe Bryant' }
+  const expectedMsg = 'the data to be updated must be of object type'
+
+  await t.throwsAsync(async () => await players.edit(query, 80), { instanceOf: TypeError, message: expectedMsg })
+  await t.throwsAsync(async () => await players.edit(query, []), { instanceOf: TypeError, message: expectedMsg })
+  await t.throwsAsync(async () => await players.edit(query, true), { instanceOf: TypeError, message: expectedMsg })
+  await t.throwsAsync(async () => await players.edit(query, 'something to update'), { instanceOf: TypeError, message: expectedMsg })
+})
