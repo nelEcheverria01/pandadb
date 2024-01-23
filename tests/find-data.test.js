@@ -30,7 +30,7 @@ test('find(), should return a promise with the element found based on the query'
   t.is(result.shirtNumber, expected.shirtNumber)
 })
 
-test('if the query is not an object, the find method should return an error', async t => {
+test('when the query provided does not comply with the MQL format an error should be thrown', async t => {
   await t.throwsAsync(async () => await players.find('robert'))
   await t.throwsAsync(async () => await players.find(45))
   await t.throwsAsync(async () => await players.find(false))
