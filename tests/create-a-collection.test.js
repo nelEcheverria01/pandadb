@@ -35,3 +35,11 @@ test('when the collection name is not of type string, collection() should return
   t.throws(() => db.collection({}), { message: expectedMsg })
   t.throws(() => db.collection([]), { message: expectedMsg })
 })
+
+test('when an existing collection is created, the collection() method will throw an error', t => {
+  const collection = 'sample'
+  const expectedMsg = `the ${collection} collection already exists`
+
+  db.collection('sample')
+  t.throws(() => db.collection('sample'), { instanceOf: Error, message: expectedMsg })
+})
