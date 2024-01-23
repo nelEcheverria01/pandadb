@@ -22,8 +22,10 @@ async t => {
 })
 
 test('when the data to be created is not of type object, the create() method returns an error', async t => {
-  await t.throwsAsync(async () => await players.create('data'))
-  await t.throwsAsync(async () => await players.create(45))
-  await t.throwsAsync(async () => await players.create(false))
-  await t.throwsAsync(async () => await players.create([]))
+  const expectedMsg = 'the data to be created must be of type string'
+
+  await t.throwsAsync(async () => await players.create('data'), { instanceOf: TypeError, message: expectedMsg })
+  await t.throwsAsync(async () => await players.create(45), { instanceOf: TypeError, message: expectedMsg })
+  await t.throwsAsync(async () => await players.create(false), { instanceOf: TypeError, message: expectedMsg })
+  await t.throwsAsync(async () => await players.create([]), { instanceOf: TypeError, message: expectedMsg })
 })
