@@ -49,3 +49,8 @@ test('findMany will return an error if the query is not compatible with MQL', as
   await t.throwsAsync(async () => await players.findMany('jj'), { instanceOf: TypeError, message: expectedMsg })
   await t.throwsAsync(async () => await players.findMany([1, 2, 3]), { instanceOf: TypeError, message: expectedMsg })
 })
+
+test('when there are no matches with the collection data, findMany will return null', async t => {
+  const result = await players.findMany({ blablabla: 'blablabla' })
+  t.is(result, null)
+})
