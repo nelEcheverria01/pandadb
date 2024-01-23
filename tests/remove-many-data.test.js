@@ -30,3 +30,10 @@ async t => {
   t.is(response.collection, 'players')
   t.is(response.removedItems, 2)
 })
+
+test('if remove() does not find data that matches the consulate, it will return an error', async t => {
+  const err = await t.throwsAsync(async () => await players.removeMany({ skfdlskfn: 'sfsf' }))
+
+  t.is(err.message, 'no element found in collection players that matches the query')
+  t.assert(err instanceof Error)
+})
