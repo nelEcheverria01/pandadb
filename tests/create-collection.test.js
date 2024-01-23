@@ -30,10 +30,10 @@ test(`collection(), will insert the collection synchronously into the
 test('when the collection name is not of type string, collection() should return an error', t => {
   const expectedMsg = 'the collection name must be of type string'
 
-  t.throws(() => db.collection(100), { message: expectedMsg })
-  t.throws(() => db.collection(true), { message: expectedMsg })
-  t.throws(() => db.collection({}), { message: expectedMsg })
-  t.throws(() => db.collection([]), { message: expectedMsg })
+  t.throws(() => db.collection(100), { instanceOf: TypeError, message: expectedMsg })
+  t.throws(() => db.collection(true), { instanceOf: TypeError, message: expectedMsg })
+  t.throws(() => db.collection({}), { instanceOf: TypeError, message: expectedMsg })
+  t.throws(() => db.collection([]), { instanceOf: TypeError, message: expectedMsg })
 })
 
 test('when an existing collection is created, the collection() method will throw an error', t => {
