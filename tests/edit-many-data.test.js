@@ -34,3 +34,13 @@ test('editMany will return an error if the query provided does not comply with t
 
   await t.throwsAsync(async () => await players.editMany('Leakers', { games: 986 }), { instanceOf: TypeError, message: expectedMsg })
 })
+
+test('editMany will throw an error when the update is not an object', async t => {
+  const query = { team: 'Leakers' }
+  const expectedMsg = 'the data to be updated must be of object type'
+
+  await t.throwsAsync(async () => await players.editMany(query, 80), { instanceOf: TypeError, message: expectedMsg })
+  await t.throwsAsync(async () => await players.editMany(query, []), { instanceOf: TypeError, message: expectedMsg })
+  await t.throwsAsync(async () => await players.editMany(query, false), { instanceOf: TypeError, message: expectedMsg })
+  await t.throwsAsync(async () => await players.editMany(query, 'new-data'), { instanceOf: TypeError, message: expectedMsg })
+})
