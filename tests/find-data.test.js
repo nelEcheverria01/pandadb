@@ -38,3 +38,8 @@ test('when the query provided does not comply with the MQL format an error shoul
   await t.throwsAsync(async () => await players.find(false), { instanceOf: TypeError, message: expectedMsg })
   await t.throwsAsync(async () => await players.find([]), { instanceOf: TypeError, message: expectedMsg })
 })
+
+test('when no element is found that satisfies the query, find() will return null', async t => {
+  const result = await players.find({ some_property: 'any-value' })
+  t.is(result, null)
+})
