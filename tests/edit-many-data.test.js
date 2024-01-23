@@ -44,3 +44,10 @@ test('editMany will throw an error when the update is not an object', async t =>
   await t.throwsAsync(async () => await players.editMany(query, false), { instanceOf: TypeError, message: expectedMsg })
   await t.throwsAsync(async () => await players.editMany(query, 'new-data'), { instanceOf: TypeError, message: expectedMsg })
 })
+
+test('when editMany tries to edit an element that does not exist, it will return an error', async t => {
+  const err = await t.throwsAsync(async () => await players.editMany({ something: 'something-else' }, { updated: true }))
+
+  t.is(err.message, 'no element found in collection players that matches the query')
+  t.assert(err instanceof Error)
+})
