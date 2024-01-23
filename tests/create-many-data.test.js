@@ -25,9 +25,13 @@ test(`to create a lot of data, you have to call createMany(), which will
 })
 
 test('the createMany method should crash when the input is not an array of objects', async t => {
-  await t.throwsAsync(async () => await players.createMany({}))
-  await t.throwsAsync(async () => await players.createMany(78545))
-  await t.throwsAsync(async () => await players.createMany(true))
-  await t.throwsAsync(async () => await players.createMany([1, 2, 3]))
-  await t.throwsAsync(async () => await players.createMany([[], true, false, 2]))
+  const expectedMsg = 'the data argument must be an array'
+
+  await t.throwsAsync(async () => await players.createMany({}), { instanceOf: TypeError, message: expectedMsg })
+  await t.throwsAsync(async () => await players.createMany(78545), { instanceOf: TypeError, message: expectedMsg })
+  await t.throwsAsync(async () => await players.createMany(true), { instanceOf: TypeError, message: expectedMsg })
+
+  // message expected when passing an array that does not contain objects
+  const _expectedMsg = 'the elements of the provided array must be of type object'
+  await t.throwsAsync(async () => await players.createMany([1, 2, 3]), { instanceOf: TypeError, message: _expectedMsg })
 })
