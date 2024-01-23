@@ -23,3 +23,10 @@ test(`when edit() is called, it should return a promise with a response
   t.is(response.collection, 'players')
   t.is(response.updatedItems, 1)
 })
+
+test('when edit() tries to edit an element that does not exist, it should return an error', async t => {
+  const err = await t.throwsAsync(async () => await players.edit({ some_property: true }, { update: 'any update' }))
+
+  t.is(err.message, 'no element found in collection players that matches the query')
+  t.assert(err instanceof Error)
+})
