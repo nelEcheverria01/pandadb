@@ -28,3 +28,9 @@ test(`editMany, should update the objects matching the query and return
   t.is(response.collection, 'players')
   t.is(response.updatedItems, 2)
 })
+
+test('editMany will return an error if the query provided does not comply with the MQL format', async t => {
+  const expectedMsg = 'invalid MQL query'
+
+  await t.throwsAsync(async () => await players.editMany('Leakers', { games: 986 }), { instanceOf: TypeError, message: expectedMsg })
+})
