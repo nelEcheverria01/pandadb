@@ -42,8 +42,10 @@ test('findMany, will find and return all the elements that match the query made'
 })
 
 test('findMany will return an error if the query is not compatible with MQL', async t => {
-  await t.throwsAsync(async () => await players.findMany(4785))
-  await t.throwsAsync(async () => await players.findMany(true))
-  await t.throwsAsync(async () => await players.findMany('jj'))
-  await t.throwsAsync(async () => await players.findMany([1, 2, 3]))
+  const expectedMsg = 'invalid MQL query'
+
+  await t.throwsAsync(async () => await players.findMany(4785), { instanceOf: TypeError, message: expectedMsg })
+  await t.throwsAsync(async () => await players.findMany(true), { instanceOf: TypeError, message: expectedMsg })
+  await t.throwsAsync(async () => await players.findMany('jj'), { instanceOf: TypeError, message: expectedMsg })
+  await t.throwsAsync(async () => await players.findMany([1, 2, 3]), { instanceOf: TypeError, message: expectedMsg })
 })
