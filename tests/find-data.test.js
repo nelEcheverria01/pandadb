@@ -31,8 +31,10 @@ test('find(), should return a promise with the element found based on the query'
 })
 
 test('when the query provided does not comply with the MQL format an error should be thrown', async t => {
-  await t.throwsAsync(async () => await players.find('robert'))
-  await t.throwsAsync(async () => await players.find(45))
-  await t.throwsAsync(async () => await players.find(false))
-  await t.throwsAsync(async () => await players.find([]))
+  const expectedMsg = 'invalid MQL query'
+
+  await t.throwsAsync(async () => await players.find('robert'), { instanceOf: TypeError, message: expectedMsg })
+  await t.throwsAsync(async () => await players.find(45), { instanceOf: TypeError, message: expectedMsg })
+  await t.throwsAsync(async () => await players.find(false), { instanceOf: TypeError, message: expectedMsg })
+  await t.throwsAsync(async () => await players.find([]), { instanceOf: TypeError, message: expectedMsg })
 })
