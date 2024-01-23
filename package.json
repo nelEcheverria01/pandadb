@@ -1,5 +1,5 @@
 {
-  "name": "pandadb",
+  "name": "@nelson_echeverria/pandadb",
   "version": "1.0.0",
   "description": "pandadb is a local document-oriented JSON database, ready to be implemented in an application in a simple way",
   "main": "lib/pandadb.js",
