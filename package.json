@@ -28,7 +28,7 @@
     "local database"
   ],
   "author": "Nelson Echeverria <nelsonecheverria100@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "ava": "6.0.1",
     "nyc": "15.1.0",
