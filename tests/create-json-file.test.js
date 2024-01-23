@@ -23,8 +23,17 @@ test('by passing a custom filename to the constructor, PandaDB will create it sy
 })
 
 test('when the parameter provided to the constructor is not of type string it should throw an error', t => {
-  t.throws(() => new PandaDB(500))
-  t.throws(() => new PandaDB({}))
-  t.throws(() => new PandaDB(true))
-  t.throws(() => new PandaDB([]))
+  const expectedMsg = 'the filename parameter must be of type string'
+
+  t.throws(() => new PandaDB(500), { instanceOf: TypeError, message: expectedMsg })
+  t.throws(() => new PandaDB({}), { instanceOf: TypeError, message: expectedMsg })
+  t.throws(() => new PandaDB(true), { instanceOf: TypeError, message: expectedMsg })
+  t.throws(() => new PandaDB([]), { instanceOf: TypeError, message: expectedMsg })
+})
+
+test('when the file provided to the builder is not a JSON file, it should return an error', t => {
+  const filename = 'sample.txt'
+  const expectedMsg = `${filename} file is not JSON file`
+
+  t.throws(() => new PandaDB(filename), { instanceOf: TypeError, message: expectedMsg })
 })
