@@ -24,9 +24,11 @@ pandadb is a local JSON database, which uses a JSON file locally to persist the 
 npm i --save-exact pandadb
 ```
 # usage
+> [!NOTE]
+> If you do not pass a file name to the PandaDB instance, it will create a JSON file called 'pandadb.json' by default.
 ```js
 const PandaDB = require('pandadb')
-const db = new PandaDB('NBA.json')
+const db = new PandaDB('NBA.json') // 
 
 const players = db.collection('players')
 
@@ -117,7 +119,8 @@ players.removeMany({})
        .then(response => console.log(response)) // { status: 'success', collection: 'players', removedItems: 3 }
 ```
 - `destroy` destroys/removes the collection from which it is called.
-**behavior**: the methods can still be accessed, but they will have no effect
+> [!IMPORTANT]
+> the methods can still be accessed, but they will have no effect
 ```js
 players.destroy().then(() => console.log('the players collection was eliminated'))
 players.list() // undefined
