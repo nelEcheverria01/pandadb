@@ -4,8 +4,8 @@ pandadb is a local document-oriented JSON database, ready to be implemented in a
 it is worth mentioning that the author of panda db was inspired by other packages to develop pandadb, such as lowdb, taffydb among others.
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-![NPM Version](https://img.shields.io/npm/v/pandadb)
-![NPM Downloads](https://img.shields.io/npm/dw/pandadb)
+![NPM Version](https://img.shields.io/npm/v/%40nelson_echeverria%2Fpandadb)
+![NPM Downloads](https://img.shields.io/npm/dw/%40nelson_echeverria%2Fpandadb)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # introduction
