@@ -26,7 +26,10 @@
     "local",
     "mql",
     "MQL",
-    "local database"
+    "local database",
+    "pandadb",
+    "panda",
+    "panda database"
   ],
   "author": "Nelson Echeverria <nelsonecheverria100@gmail.com>",
   "license": "MIT",
