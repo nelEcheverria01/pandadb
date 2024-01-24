@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "standard",
     "test:unit": "ava --concurrency=1",
+    "test": "npm run lint && npm run test:unit",
     "coverage": "nyc npm run test"
   },
   "engines": {
