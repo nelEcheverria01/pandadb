@@ -5,7 +5,7 @@
   "main": "lib/pandadb.js",
   "scripts": {
     "lint": "standard",
-    "test": "ava --concurrency=1",
+    "test:unit": "ava --concurrency=1",
     "coverage": "nyc npm run test"
   },
   "engines": {
